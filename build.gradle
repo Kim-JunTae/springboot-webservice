@@ -1,0 +1,31 @@
+buildscript{
+    //ext : 전역변수 설정하겠다는 의미
+    ext{
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//자바와 스프링 부트를 사용하기 위한 필수 플러그인
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.juntae.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+// 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지 정하는 곳 : repositories
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
